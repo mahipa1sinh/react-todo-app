@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./index.css";
 const Container = styled.div`
@@ -68,6 +68,13 @@ const App = () => {
     setTodoList([]);
     setCompletedTaskCount(0);
   };
+
+  useEffect(() => {
+    if (completedTaskCount === todoList.length) {
+      setTodoList([]);
+      setCompletedTaskCount(0);
+    }
+  }, [completedTaskCount, todoList.length]);
 
   return (
     <Container>
