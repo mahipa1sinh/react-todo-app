@@ -53,10 +53,8 @@ const App = () => {
       let item = {};
       if (task.id === id) {
         if (!task.complete) {
-          //Task is pending, modifying it to complete and increment the count
           setCompletedTaskCount(completedTaskCount + 1);
         } else {
-          //Task is complete, modifying it back to pending, decrement Complete count
           setCompletedTaskCount(completedTaskCount - 1);
         }
         item = { ...task, complete: !task.complete };
