@@ -32,10 +32,29 @@ const LIST = styled.li`
   liststyle: "none";
   text-decoration: "line-through";
 `;
+
 const App = () => {
   const [input, setInput] = useState("");
-  const [completedTaskCount, setCompletedTaskCount] = useState(0);
-  const [todoList, setTodoList] = useState([]);
+  // const [completedTaskCount, setCompletedTaskCount] = useState(0);
+  const [completedTaskCount, setCompletedTaskCount] = useState(() => {
+    const savedCompletedTaskCount = localStorage.getItem("completedTaskCount");
+    if (savedCompletedTaskCount) {
+      return JSON.parse(savedCompletedTaskCount);
+    } else {
+      return 0;
+    }
+  });
+  // const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(() => {
+    const savedTodos = localStorage.getItem("todoList");
+    if (savedTodos) {
+      return JSON.parse(savedTodos);
+    } else {
+      return [];
+    }
+  });
+
+  // handle click event of the Add button, add new task to the list
   const handleClick = () => {
     const id = todoList.length + 1;
     setTodoList((prev) => [
@@ -70,11 +89,12 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (completedTaskCount === todoList.length) {
-      setTodoList([]);
-      setCompletedTaskCount(0);
-    }
-  }, [completedTaskCount, todoList.length]);
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+    localStorage.setItem(
+      "completedTaskCount",
+      JSON.stringify(completedTaskCount)
+    );
+  }, [todoList, completedTaskCount]);
 
   return (
     <Container>
