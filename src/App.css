@@ -1,12 +1,20 @@
 body {
-  background-color: #9266ff;
+  background: linear-gradient(90deg,
+      rgb(104, 247, 178) 0%,
+      rgb(0, 17, 126) 100%);
 }
 
 .App {
-  background-color: #3f3160;
-  min-height: 500px;
-  width: 400px;
-  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 520px;
+  min-height: 600px;
+  background: #000000;
+  text-align: center;
+  margin: 128px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
 }
 
 #to-do-form input {

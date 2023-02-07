@@ -22,6 +22,18 @@ class App extends React.Component {
     this.deleteItem = this.deleteItem.bind(this);
     this.setUpdate = this.setUpdate.bind(this);
   }
+
+  componentDidMount() {
+    const items = localStorage.getItem("items");
+    if (items) {
+      this.setState({ items: JSON.parse(items) });
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("items", JSON.stringify(this.state.items));
+  }
+
   addItem(e) {
     e.preventDefault();
     const newItem = this.state.currentItem;
