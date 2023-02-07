@@ -1,20 +1,20 @@
 import React from "react";
 import "./ListItems.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled from "styled-components";
-import { useState } from "react";
+// import styled from "styled-components";
+// import { useState } from "react";
 
-const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  cursor: pointer;
-  &:hover {
-    background: palevioletred;
-    color: white;
-  }
-`;
+// const Button = styled.button`
+//   background: transparent;
+//   border-radius: 3px;
+//   border: 2px solid palevioletred;
+//   color: palevioletred;
+//   cursor: pointer;
+//   &:hover {
+//     background: palevioletred;
+//     color: white;
+//   }
+// `;
 
 function ListItems(props) {
   const items = props.items;
