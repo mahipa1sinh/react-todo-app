@@ -24,12 +24,23 @@
     outline: none;
 }
 
+.complete {
+    text-decoration: line-through;
+    opacity: 0.4;
+}
+
 .list p span {
     position: absolute;
     right: 10px;
 }
 
 .faicons {
+    margin: 0 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.listButton {
     margin: 0 5px;
     font-size: 15px;
     cursor: pointer;
